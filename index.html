@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Hive - Where ideas buzz and coffee fuels creativity. A comfortable workspace and modern cafe in Mansoura for students, freelancers, and entrepreneurs.">
+    <meta name="keywords"
+        content="coworking space, cafe, workspace, study area, Mansoura, Egypt, study cafe, Mansoura coworking">
+    <title>The Hive | Workspace & Cafe - Mansoura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --honey-brown: #A67C52;
+            --gold: #FFB347;
+            --black: #2D2D2D;
+            --white: #FFFFFF;
+            --light-beige: #F9F5F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--light-beige);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--honey-brown));
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--honey-brown);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(166, 124, 82, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .venue-logo {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--honey-brown);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .counter-container {
+            margin-top: 50px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .counter-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .book-counter {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            perspective: 1000px;
+        }
+
+        .counter-page {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--gold), var(--honey-brown));
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-weight: 700;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        .counter-page.flipping {
+            animation: flipPage 0.8s ease forwards;
+        }
+
+        .counter-page .front,
+        .counter-page .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
+
+        .counter-page .back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, var(--honey-brown), var(--gold));
+        }
+
+        .counter-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .counter-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: translateY(-5px);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--honey-brown));
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--gold);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--honey-brown);
+            margin-bottom: 20px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--black);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:nth-child(3n) {
+            grid-row: span 2;
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .reviews-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .review-card {
+            min-width: 100%;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .review-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--honey-brown);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--gold);
+        }
+
+        /* Social Media Section */
+        .social-section {
+            background-color: var(--honey-brown);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        /* Booking Section */
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .map-container {
+            flex: 2;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes honeyDrip {
+            0% {
+                transform: rotate(45deg) translateX(-100%);
+            }
+
+            100% {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        @keyframes flipPage {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            50% {
+                transform: rotateY(90deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        /* Bee Animation */
+        .bee {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(90deg, #FFB347, #A67C52);
+            border-radius: 50%;
+            animation: fly 15s infinite linear;
+            z-index: 100;
+        }
+
+        .bee:before,
+        .bee:after {
+            content: '';
+            position: absolute;
+            background-color: var(--black);
+            border-radius: 50%;
+        }
+
+        .bee:before {
+            width: 10px;
+            height: 10px;
+            top: 5px;
+            left: 5px;
+        }
+
+        .bee:after {
+            width: 5px;
+            height: 5px;
+            top: 12px;
+            left: 20px;
+        }
+
+        .bee .wing {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            top: -5px;
+            animation: flap 0.2s infinite alternate;
+        }
+
+        .bee .wing.left {
+            left: 5px;
+        }
+
+        .bee .wing.right {
+            right: 5px;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(100vw, 50vh) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(50vw, 100vh) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-50vw, 50vh) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @keyframes flap {
+            from {
+                transform: scaleY(1);
+            }
+
+            to {
+                transform: scaleY(0.7);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .book-counter {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .counter {
+                flex-wrap: wrap;
+            }
+
+            .booking-form {
+                padding: 30px 20px;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .venue-logo {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="#" class="logo">
+                        <i class="fas fa-bee logo-icon"></i>
+                        <!-- <span class="logo-text"><img src="images/logo.png" width="100px" alt="Logo"></span> -->
+                    </a>
+                    <img src="images/logo.png" alt="Venue Logo" class="venue-logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Where Ideas Buzz and Coffee Fuels Creativity</h1>
+            <p>A comfortable workspace and modern cafe designed for students, freelancers, and entrepreneurs in Belqas
+            </p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn btn-primary">Book Your Seat</a>
+                <a href="#pricing" class="btn btn-secondary">View Menu</a>
+            </div>
+            <div class="counter-container">
+                <h3 class="counter-title">Days Since Our Grand Opening</h3>
+                <div class="book-counter">
+                    <div class="counter-page" id="days-page">
+                        <div class="front">
+                            <div class="counter-number" id="days-front">0</div>
+                            <div class="counter-label">Days</div>
+                        </div>
+                        <div class="back">
+                            <div class="counter-number" id="days-back">0</div>
+                            <div class="counter-label">Days</div>
+                        </div>
+                    </div>
+                    <div class="counter-page" id="hours-page">
+                        <div class="front">
+                            <div class="counter-number" id="hours-front">0</div>
+                            <div class="counter-label">Hours</div>
+                        </div>
+                        <div class="back">
+                            <div class="counter-number" id="hours-back">0</div>
+                            <div class="counter-label">Hours</div>
+                        </div>
+                    </div>
+                    <div class="counter-page" id="minutes-page">
+                        <div class="front">
+                            <div class="counter-number" id="minutes-front">0</div>
+                            <div class="counter-label">Minutes</div>
+                        </div>
+                        <div class="back">
+                            <div class="counter-number" id="minutes-back">0</div>
+                            <div class="counter-label">Minutes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bee" style="top: 20%; left: 10%; animation-delay: 0s;">
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+        </div>
+        <div class="bee" style="top: 60%; left: 80%; animation-delay: 5s;">
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+        </div>
+        <div class="bee" style="top: 80%; left: 30%; animation-delay: 10s;">
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About The Hive</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The Hive is a hybrid workspace and cafe designed to inspire creativity and productivity. We
+                        provide a comfortable environment where students, freelancers, and entrepreneurs can work,
+                        collaborate, and enjoy premium coffee and snacks.</p>
+                    <p>Our mission is to create a vibrant community of innovators and thinkers, providing all the
+                        necessary facilities for a productive work session in a warm and welcoming atmosphere.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-wifi feature-icon"></i>
+                            <h4>High-Speed WiFi</h4>
+                            <p>Reliable internet for all your needs</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-coffee feature-icon"></i>
+                            <h4>Premium Coffee</h4>
+                            <p>Carefully selected and expertly prepared</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users feature-icon"></i>
+                            <h4>Community</h4>
+                            <p>Connect with like-minded people</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/1.jpg"
+                        alt="The Hive workspace interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop service-icon"></i>
+                    <h3>Co-working Spaces</h3>
+                    <p>Comfortable desks with power outlets and ergonomic chairs for productive work sessions.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-coffee service-icon"></i>
+                    <h3>Cafe & Snacks</h3>
+                    <p>Premium coffee, tea, and delicious snacks to keep you energized throughout the day.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wifi service-icon"></i>
+                    <h3>High-Speed WiFi</h3>
+                    <p>Fast and reliable internet connection suitable for video calls and large file transfers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-calendar-alt service-icon"></i>
+                    <h3>Event Hosting</h3>
+                    <p>Perfect venue for workshops, meetings, and networking events with full AV support.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-book service-icon"></i>
+                    <h3>Study Areas</h3>
+                    <p>Quiet zones designed for focused studying with comfortable seating and proper lighting.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-print service-icon"></i>
+                    <h3>Printing Services</h3>
+                    <p>Black & white and color printing, scanning, and photocopying facilities available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Membership Plans</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Hourly Pass</h3>
+                    <div class="plan-price">&#163;50 <span>/ hour</span></div>
+                    <ul class="plan-features">
+                        <li>Flexible access</li>
+                        <li>Free WiFi</li>
+                        <li>Complimentary coffee</li>
+                        <li>Power outlets</li>
+                        <li>Basic printing</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">Daily Pass</h3>
+                    <div class="plan-price">&#163;250 <span>/ day</span></div>
+                    <ul class="plan-features">
+                        <li>Full day access</li>
+                        <li>Free WiFi</li>
+                        <li>2 complimentary drinks</li>
+                        <li>Power outlets</li>
+                        <li>Meeting room access (1 hour)</li>
+                        <li>Printing credit</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="plan-name">Monthly Pass</h3>
+                    <div class="plan-price">&#163;1990 <span>/ month</span></div>
+                    <ul class="plan-features">
+                        <li>24/7 access</li>
+                        <li>Free WiFi</li>
+                        <li>Daily coffee</li>
+                        <li>Dedicated locker</li>
+                        <li>Meeting room access (5 hours)</li>
+                        <li>Printing allowance</li>
+                        <li>Event discounts</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Our Space</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/2.jpg"
+                        alt="Co-working space at The Hive">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/3.jpg"
+                        alt="Coffee and pastries at The Hive">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="Study zone at The Hive">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/4.jpg"
+                        alt="Meeting room at The Hive">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/5.jpg"
+                        alt="Relaxation area at The Hive">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/6.jpg"
+                        alt="Coffee bar at The Hive">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Members Say</h2>
+            <div class="reviews-container">
+                <div class="reviews-slider">
+                    <div class="review-card">
+                        <img src="images/8.jpg"
+                            alt="Sarah Johnson" class="review-avatar">
+                        <p class="review-text">"The Hive has completely changed my work routine. The atmosphere is
+                            perfect for focus, and the coffee is exceptional. I've met so many inspiring people here!"
+                        </p>
+                        <h4 class="review-author">Sarah Johnson</h4>
+                        <p>Freelance Designer</p>
+                    </div>
+                    <div class="review-card">
+                        <img src="images/mohamed.jpg"
+                            alt="Ahmed Hassan" class="review-avatar">
+                        <p class="review-text">"As a student, finding a quiet place to study was always a challenge. The
+                            Hive provides the perfect environment with comfortable seating and great coffee."</p>
+                        <h4 class="review-author">Mohamed Moussa</h4>
+                        <p>University Student</p>
+                    </div>
+                    <div class="review-card">
+                        <img src="images/7.jpg"
+                            alt="Lina Mahmoud" class="review-avatar">
+                        <p class="review-text">"I regularly host my small business meetings at The Hive. The private
+                            rooms are perfect, and the staff is always accommodating. Highly recommended!"</p>
+                        <h4 class="review-author">Lina Mahmoud</h4>
+                        <p>Entrepreneur</p>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <span class="slider-dot active" data-slide="0"></span>
+                    <span class="slider-dot" data-slide="1"></span>
+                    <span class="slider-dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Connect With Us</h2>
+            <p style="color: var(--white); margin-bottom: 40px; text-align: center;">Follow us on social media to stay
+                updated on events and special offers</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/+201034385085" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Book Your Seat</h2>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan Type</label>
+                    <select id="plan" class="form-control" required>
+                        <option value="">Select a plan</option>
+                        <option value="hourly">Hourly Pass</option>
+                        <option value="daily">Daily Pass</option>
+                        <option value="monthly">Monthly Pass</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Notes</label>
+                    <textarea id="message" class="form-control" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Belqas, Al-Gomhouria Street, Al-Gohary Tower, First Floor </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+2 010 3438 5085</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@thehive-Belqas.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <p>Sunday - Thursday: 8:00 AM - 11:00 PM</p>
+                                <p>Friday - Saturday: 9:00 AM - 12:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.1845486296434!2d31.35058969259262!3d31.215616099513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f771004b19bb63%3A0x307fdb0602b17bed!2sThe%20Hive!5e0!3m2!1sen!2seg!4v1762902568077!5m2!1sen!2seg"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>The Hive</h3>
+                    <p>Where ideas buzz and coffee fuels creativity. A comfortable workspace and modern cafe in the
+                        heart of Belqas.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Co-working Spaces</a></li>
+                        <li><a href="#">Cafe & Snacks</a></li>
+                        <li><a href="#">Event Hosting</a></li>
+                        <li><a href="#">Study Areas</a></li>
+                        <li><a href="#">Printing Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Belqas, Al-Gomhouria Street, Al-Gohary Tower, First
+                            Floor </li>
+                        <li><i class="fas fa-phone"></i> +2 010 3438 5085</li>
+                        <li><i class="fas fa-envelope"></i> hello@thehive-Belqas.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 The Hive. All Rights Reserved. | Designed with <i class="fas fa-heart"
+                        style="color: var(--gold);"></i> for the creative community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Book-style counter with flipping animation
+        let currentDays = 0;
+        let currentHours = 0;
+        let currentMinutes = 0;
+
+        function updateCounter() {
+            const openingDate = new Date('November 11, 2025 17:00:00').getTime();
+            const now = new Date().getTime();
+            const timeDiff = now - openingDate;
+
+            if (timeDiff > 0) {
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+
+                // Update days with flip animation
+                if (days !== currentDays) {
+                    flipPage('days-page', days, currentDays);
+                    currentDays = days;
+                }
+
+                // Update hours with flip animation
+                if (hours !== currentHours) {
+                    flipPage('hours-page', hours, currentHours);
+                    currentHours = hours;
+                }
+
+                // Update minutes with flip animation
+                if (minutes !== currentMinutes) {
+                    flipPage('minutes-page', minutes, currentMinutes);
+                    currentMinutes = minutes;
+                }
+            }
+        }
+
+        function flipPage(pageId, newValue, oldValue) {
+            const page = document.getElementById(pageId);
+            const front = page.querySelector('.front .counter-number');
+            const back = page.querySelector('.back .counter-number');
+
+            // Set the new value on the back side
+            back.textContent = newValue;
+
+            // Trigger the flip animation
+            page.classList.add('flipping');
+
+            // After animation completes, update the front and reset
+            setTimeout(() => {
+                front.textContent = newValue;
+                page.classList.remove('flipping');
+            }, 800);
+        }
+
+        // Initialize counter
+        updateCounter();
+        setInterval(updateCounter, 60000); // Update every minute
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards for animation
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Reviews slider
+        const slider = document.querySelector('.reviews-slider');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            currentSlide = (n + 3) % 3; // Ensure it's between 0-2
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Booking form submission
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const plan = document.getElementById('plan').value;
+            const message = document.getElementById('message').value;
+
+            // Create WhatsApp message
+            const text = `مرحبًا! أود حجز مكان في The Hive.%0A%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالتاريخ: ${date}%0Aالباقة: ${plan}%0Aملاحظات إضافية: ${message}`;
+
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/201034385085?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>
+<!-- https://api.whatsapp.com/send?phone=201034385085 -->
