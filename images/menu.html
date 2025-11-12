@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hive Café - Menu</title>
+    <style>
+        /* 
+        Color Palette Extracted from Hive Café Menu Images:
+        - Background: #FDF6E3 (cream/off-white)
+        - Header Background: #2C2416 (dark brown)
+        - Header Text: #D4AF37 (gold)
+        - Category Headers: #2C2416 (dark brown) with #D4AF37 (gold) text
+        - Card Background: #FFFFFF (white)
+        - Text: #2C2416 (dark brown)
+        - Price Text: #C41E3A (red/burgundy)
+        - Accent: #8B4513 (saddle brown)
+        */
+
+        :root {
+            --bg-color: #FDF6E3;
+            --header-bg: #2C2416;
+            --header-text: #D4AF37;
+            --card-header-bg: #2C2416;
+            --card-header-text: #D4AF37;
+            --card-bg: #FFFFFF;
+            --text-color: #2C2416;
+            --price-color: #C41E3A;
+            --accent-color: #8B4513;
+            --border-radius: 12px;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 0;
+            background-image:
+                url('https://images.unsplash.com/photo-1610889556528-0ff25679da76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'),
+                url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-blend-mode: overlay;
+            background-size: 300px, 400px;
+            background-position: left top, right bottom;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .cafe-name {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .category {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            background-color: var(--card-header-bg);
+            color: var(--card-header-text);
+            padding: 15px 20px;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .menu-items {
+            padding: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+            border-radius: 6px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--price-color);
+            font-size: 1.1rem;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 30px auto;
+            padding: 12px 20px;
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(44, 36, 22, 0.1);
+        }
+
+        .note {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Not Just a Seat...</h1>
+                <div class="subtitle">IT'S YOUR ZONE</div>
+                <div class="cafe-name">the hive</div>
+                <div class="tagline">WORKSPACE & CAFE</div>
+            </div>
+        </header>
+
+        <div class="menu-grid">
+            <!-- Hot Coffee (Left) -->
+            <div class="category">
+                <div class="category-header">Hot Coffee</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">فلات وابت</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">لائبه</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">اسبانش لائبه</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">موحّا</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">وابت موحّا</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميكانو دابل</div>
+                            <div class="item-price">55</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">حُروتادو</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">حُون بانا</div>
+                            <div class="item-price">60</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hot Coffee (Right) -->
+            <div class="category">
+                <div class="category-header">Hot Coffee</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">تركي سنجل</div>
+                            <div class="item-price">30</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">تركي دابل</div>
+                            <div class="item-price">35</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">قهوة فرنساوي</div>
+                            <div class="item-price">45</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">فرنساوي بندق</div>
+                            <div class="item-price">50</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">نسكافيه حليب</div>
+                            <div class="item-price">50</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">اسبرسو سنجل</div>
+                            <div class="item-price">40</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">اسبرسو دابل</div>
+                            <div class="item-price">50</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">كابنشنبو</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hot Drinks -->
+            <div class="category">
+                <div class="category-header">Hot Drinks</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">شاي</div>
+                            <div class="item-price">20</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">شاي نگهات</div>
+                            <div class="item-price">30</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">شاي كرك</div>
+                            <div class="item-price">45</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">شاي عدني</div>
+                            <div class="item-price">45</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">هوت شوكيليت</div>
+                            <div class="item-price">60</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">وابت هوت شوكيليت</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">هوت سيدر</div>
+                            <div class="item-price">50</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">سحلب</div>
+                            <div class="item-price">50</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">قرقه حليب</div>
+                            <div class="item-price">60</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boba -->
+            <div class="category">
+                <div class="category-header">Boba</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا كراميل</div>
+                            <div class="item-price">90</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا كوفي</div>
+                            <div class="item-price">90</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا وابت شوكيلت</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا اسبانش لائبه</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا فراوله</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا بلو بري</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">يوبا باشون فروت</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ice Coffee -->
+            <div class="category">
+                <div class="category-header">Ice Coffee</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس كوفي</div>
+                            <div class="item-price">60</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس لائبه</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس اميركانو</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس كيانشنبو</div>
+                            <div class="item-price">75</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس اسبانش لائبه</div>
+                            <div class="item-price">85</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس كراميل ميكانو</div>
+                            <div class="item-price">85</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ايس موحّا</div>
+                            <div class="item-price">85</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milk Shake -->
+            <div class="category">
+                <div class="category-header">Milk Shake</div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك</div>
+                            <div class="item-price">70</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك كوفي</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك شوكيلت</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك باشون فروت</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك ميكس بري</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك توت</div>
+                            <div class="item-price">80</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك لونس</div>
+                            <div class="item-price">85</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-icon">
+                            <i class="fas fa-glass-whiskey"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ميلك شبك ستاشيو</div>
+                            <div class="item-price">100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/index.html" class="back-button">Back to Home</a>
+    </div>
+
+    <script>
+        // Simple script for hover animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    const icon = this.querySelector('.item-icon i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('.item-icon i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
